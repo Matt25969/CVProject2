@@ -1,0 +1,1 @@
+console.log(`http://${process.env.BACKEND_URL}/`)

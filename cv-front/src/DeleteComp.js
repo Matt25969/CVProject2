@@ -4,7 +4,7 @@ import axios from 'axios';
 class DeleteComp extends React.Component {
 
     state = {
-        target:"http://192.168.99.100:4011/"+this.props.firstName+"/"+this.props.lastName,
+        target:`http://${process.env.BACKEND_URL}/`+this.props.firstName+"/"+this.props.lastName,
         temp:0
         };
 
