@@ -7,6 +7,8 @@ import BespokeGetComp from './bespokeGet';
 import DeleteComp from './DeleteComp';
 import AmendComp from './AmendComp';
 
+import { BACKEND_URL } from './api-config';
+
 // import 'react-bootstrap-table/css/react-bootstrap-table.css';
 
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';

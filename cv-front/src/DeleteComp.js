@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import { BACKEND_URL } from './api-config';
+
 class DeleteComp extends React.Component {
 
     state = {

@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import { Container, Row, Col, Input, Button, Fa, Card, CardBody } from 'mdbreact';
 
-import FormsPage from './formEle';
 
 //this line really mucks with the css for the whole frontend
 import 'mdbreact/dist/css/mdb.css';

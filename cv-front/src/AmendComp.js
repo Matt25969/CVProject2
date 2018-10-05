@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import { BACKEND_URL } from './api-config';
+
 class AmendComp extends React.Component {
     constructor(props){
 super(props)

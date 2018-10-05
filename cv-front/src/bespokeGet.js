@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { BACKEND_URL } from './api-config';
 
 class BespokeGetComp extends React.Component {
 
