@@ -15,6 +15,8 @@ import ExtraDataColumnFormatTable from './sockTable'
 
 import './App.css';
 
+import { API_ROOT } from './api-config';
+
 
 
 class App extends Component {
@@ -46,7 +48,7 @@ changeSocks:false
 
   handleSubmit(event) {
 
-console.log(this.state.getTarget);
+
 
     event.preventDefault();
     const data = new FormData(event.target);
@@ -84,6 +86,11 @@ var oppDisplayAdd = !(this.state.displayAdd);
 
   
   render() {
+
+    console.log(this.state.getTarget);
+    console.log(`http://${process.env[1]}/`)
+    console.log(process.env.REACT_BACKEND_URL)
+    console.log(`${API_ROOT}`);
 
     if (this.state.displayAdd){
     return (
