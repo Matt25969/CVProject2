@@ -5,7 +5,7 @@ import axios from 'axios';
 class UploadSection extends Component {
 state = {
 
-getTarget:"http://192.168.99.100:4011/",
+getTarget:`http://${process.env.BACKEND_URL}/`,
 temp:1,
 firstState : "",
 lastState : ""
@@ -22,7 +22,7 @@ lastState : ""
     var first = document.getElementById("firstName").value;
     var last = document.getElementById("lastName").value;
 
-    fetch("http://192.168.99.100:4011/"+first+"/"+last, {
+    fetch(`http://${process.env.BACKEND_URL}/`+first+"/"+last, {
       method: 'POST',
       body: data,
     });
@@ -31,7 +31,7 @@ lastState : ""
 
   handleGet(){
     var last = document.getElementById("lastName").value;
-    this.state.getTarget = "http://192.168.99.100:4011/"+last;
+    this.state.getTarget = `http://${process.env.BACKEND_URL}/`+last;
   }
 
   handleUpload(){

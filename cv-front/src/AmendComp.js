@@ -9,7 +9,7 @@ this.handleSubmit = this.handleSubmit.bind(this);
 
     state = {
 
-    target:"http://192.168.99.100:4011/"+this.props.firstName+"/"+this.props.lastName
+    target:`http://${process.env.BACKEND_URL}/`+this.props.firstName+"/"+this.props.lastName
 
     };
 
