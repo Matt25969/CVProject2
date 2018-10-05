@@ -1,0 +1,6 @@
+com\qa\cv\Application.class
+com\qa\cv\Application$1.class
+com\qa\cv\models\Delegate.class
+com\qa\cv\controllers\FileUploadController.class
+com\qa\cv\exception\ResourceNotFoundException.class
+com\qa\cv\repository\DelegateRepository.class

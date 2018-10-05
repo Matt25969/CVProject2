@@ -1,0 +1,13 @@
+-d means detach it
+
+-p port forwarding - because its isolated we wanna get a certain port and forward to host python app is on 9000
+
+tcp has a handshake - waits for some kind of response
+
+udp just a beast - voip - to reduce latency
+
+docker build command - same direectory as docker file
+
+make a docker file
+
+docker build -t test .
