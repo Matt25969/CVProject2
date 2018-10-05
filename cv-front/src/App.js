@@ -15,14 +15,14 @@ import ExtraDataColumnFormatTable from './sockTable'
 
 import './App.css';
 
-import { API_ROOT } from './api-config';
+import { BACKEND_URL } from './api-config';
 
 
 
 class App extends Component {
 state = {
 
-getTarget:`http://${process.env.BACKEND_URL}/`,
+getTarget:`http://${BACKEND_URL}/`,
 temp:1,
 firstState : "",
 lastState : "",
@@ -56,7 +56,7 @@ changeSocks:false
     var first = document.getElementById("firstName").value;
     var last = document.getElementById("lastName").value;
 
-    fetch(`http://${process.env.BACKEND_URL}/`+first+"/"+last, {
+    fetch(`http://${BACKEND_URL}/`+first+"/"+last, {
       method: 'POST',
       body: data,
     });
@@ -65,7 +65,7 @@ changeSocks:false
 
   handleGet(){
     var last = document.getElementById("lastName").value;
-    this.state.getTarget = `http://${process.env.BACKEND_URL}/`+last;
+    this.state.getTarget = `http://${BACKEND_URL}/`+last;
   }
 
   handleUpload(){
@@ -87,10 +87,6 @@ var oppDisplayAdd = !(this.state.displayAdd);
   
   render() {
 
-    console.log(this.state.getTarget);
-    console.log(`http://${process.env[1]}/`)
-    console.log(process.env.REACT_BACKEND_URL)
-    console.log(`${API_ROOT}`);
 
     if (this.state.displayAdd){
     return (

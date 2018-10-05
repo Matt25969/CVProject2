@@ -23,11 +23,11 @@ class ExtraDataColumnFormatTable extends React.Component {
     constructor(props){
         super(props);
 
-        axios.get(`http://${process.env.BACKEND_URL}/getAllMeta`).then(response => {
+        axios.get(`http://${BACKEND_URL}/getAllMeta`).then(response => {
 	
             this.setState({messageMeta: response.data},() => {
 
-                axios.get(`http://${process.env.BACKEND_URL}/getAll`).then(response => {
+                axios.get(`http://${BACKEND_URL}/getAll`).then(response => {
         
                     this.setState({message: response.data},() => {
 
