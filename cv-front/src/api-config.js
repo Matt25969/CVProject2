@@ -1,4 +1,4 @@
-// let backendHost;
+// let backendHo st;
 
 // const apiVersion = 'v1';
 
@@ -18,4 +18,4 @@
 
 
 
-export const BACKEND_URL = `35.242.186.188:4011`;
+export const BACKEND_URL = `http://35.242.137.151:4011/`;
