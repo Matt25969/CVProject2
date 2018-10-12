@@ -4,9 +4,9 @@ This is a simple trainer management system that can be used as a reference archi
 
 -   [Spring boot](https://spring.io/projects/spring-boot) for server side web pages and services
 
--   [AngularJS](https://angularjs.org/) for client side rich user interfaces
+-   [ReactJS](https://reactjs.org/) for client side rich user interfaces
 
--   [MySQL](https://www.mysql.com/) for relational data
+-   [MongoDB](https://www.mongodb.com/) for persistant file storage
 
 -   [Docker](https://www.docker.com/) for a standard run-time environment
 
