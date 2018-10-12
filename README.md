@@ -39,7 +39,7 @@ This project used an Agile methodology using the follow example task board: http
 
 Architecture
 ---------------
-The following diagram shows the high level reference architecture for the application: ![](./docs/img/architecture.jpg)
+The following diagram shows the high level reference architecture for the application: ![](./cv-back/docs/img/architecture.jpg)
 
 Running the application
 -----
