@@ -1,37 +1,71 @@
-# Spring Petclinic
-A combination of Vagrant and Shell scripts to provision a Centos 7 virtual machine and deploy the [spring-petclinic](https://github.com/spring-petclinic) Angular front-end and REST API into Docker containers
-## Setup Guide
-#### Requirements
-- [Git](https://git-scm.com/downloads)
-- [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
-- [Vagrant](https://www.vagrantup.com/downloads.html)
+Introduction 
+-----------
+This is a simple trainer management system that can be used as a reference architecture to build a full-stack application. This system is built with the following technologies:
 
-If you are on Windows and have the [Chocolatey package manager](https://chocolatey.org/), these can all be installed with this command
-```bash
-choco install -y git virtualbox vagrant
+-   [Spring boot](https://spring.io/projects/spring-boot) for server side web pages and services
+
+-   [AngularJS](https://angularjs.org/) for client side rich user interfaces
+
+-   [MySQL](https://www.mysql.com/) for relational data
+
+-   [Docker](https://www.docker.com/) for a standard run-time environment
+
+Prerequisite
+-----
+Prior to running this application we need to setup our windows environments by following these steps:
+
+Step 1:
+Open up a command prompt as an administrator and install the Windows package manager using the following command:
 ```
-#### Installation Steps
-Use the following commands:
-1. Clone this GitHub repository:
-    ```bash
-    git clone https://github.com/bob-crutchley/spring-petclinic && cd spring-petclinic
-    ```
-2. Run the Vagrant scripts:
-    ```bash
-    vagrant up
-    ```
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+```
+Step 2:
+Using the Windows package manager install java jdk, maven and docker toolbox using the following commands:
+```
+choco install -y jdk8 maven virtualbox
+choco install -y docker-toolbox -ia /TASKS="desktopicon,modifypath,upgradevm"
+```
+Step 3:
+Close the current command prompt and open the Docker Quickstart Terminal (icon on is on your desktop)
 
-Other usage notes:
-- You can use `vagrant destroy -f` to stop and delete the virtual machine
+Step 4:
+Using the Docker Quickstart Terminal forward port 8080 on the docker virtualbox machine using VBoxManage.exe by executing the following command:
+```
+/c/Program\ Files/Oracle/VirtualBox/VBoxManage controlvm "default" natpf1 "tracker-docker,tcp,,8080,,8080"
+```
+Project Management
+---------------
+This project used an Agile methodology using the follow example task board: https://trello.com/b/lu4XPoxP/trainer-app
 
-#### Verifying the installtion
-##### Check the Petclinic REST API is running by navigating to here in a web browser:
-    http://10.0.10.10:9966/petclinic/swagger-ui.html
+Architecture
+---------------
+The following diagram shows the high level reference architecture for the application: ![](./docs/img/architecture.jpg)
 
-![REST API](docs/images/rest_api.png)
-
-##### Check the Petclinic Angular front-end is running by navigating to here in a web browser:
-    http://10.0.10.10:4200/petclinic
-
-![Angular Front-End](docs/images/angular_front_end.png)
-
+Running the application
+-----
+Step 1:
+Make a directory for your work and clone the tracker-docker project using the following command:
+```
+mkdir -p ~/projects && cd $_
+git clone https://github.com/scrappy1987/tracker-docker && cd tracker-docker
+```
+Step 2:
+Build a docker image of the tracker-docker project using the following command:
+```
+mvn clean package docker:build
+```
+Step 3:
+Run a mysql db in a docker container using the following command:
+```
+docker run --name trainer-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=trainer -e MYSQL_USER=trainer_user -e MYSQL_PASSWORD=trainer_pass -d mysql:5.6
+```
+Step 4:
+Run the tracker-docker image that was built in step 2 using the following command:
+```
+docker run -p 8080:8080 --name trainer-app --link trainer-mysql:mysql -d trainer/trainer-tracker
+```
+Step 5:
+Access the applicaton by accessing the following URL in the browser
+```
+http://localhost:8080
+```
